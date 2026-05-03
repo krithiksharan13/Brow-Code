@@ -107,4 +107,3 @@ Built with ⚡ for the University of Leeds.
 | Haritej Karimisetti | tctn0725@leeds.ac.uk |
 | Asjad Moiz Khan | gfqs0308@leeds.ac.uk |
 
-**GitHub**: [krithiksharan13/Brow-Code](https://github.com/krithiksharan13/Brow-Code)
