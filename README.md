@@ -1,6 +1,6 @@
 # ⚡ Brow-Code?
 
-> **A coding assistant with a game** — built by Team WASD
+> **A coding assistant with a game** - built by Team WASD
 
 Brow-Code? is a unified development environment that merges AI-powered learning tools with competitive coding challenges. It provides an intelligent C++ playground and a real-time multiplayer JavaScript battle arena, all from a single futuristic hub.
 
