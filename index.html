@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team WASD's Brow-Code?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap');
+
+        :root {
+            --c-game: #00e5ff;
+            --c-learn: #ff1cf7;
+            --bg: #03030d;
+            --panel: #07071a;
+            --border: #1a1a3e;
+            --text: #c8c8e8;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Share Tech Mono', monospace;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image:
+                radial-gradient(ellipse at 20% 30%, rgba(0,229,255,.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(255,28,247,.05) 0%, transparent 50%);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .team-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            color: var(--c-game);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--c-game), var(--c-learn));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.4));
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #aaa;
+            margin-bottom: 4rem;
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+
+        .options {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            width: 280px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            transition: all 0.3s;
+        }
+
+        .card.game::before { background: var(--c-game); box-shadow: 0 0 15px var(--c-game); }
+        .card.learn::before { background: var(--c-learn); box-shadow: 0 0 15px var(--c-learn); }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 35, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .card.game h2 { color: var(--c-game); }
+        .card.learn h2 { color: var(--c-learn); }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #aaa;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* Background grid effect */
+        .grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(26, 26, 62, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 26, 62, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid"></div>
+    <div class="container">
+        <div class="team-name">Team WASD's</div>
+        <h1>Brow-Code?</h1>
+        <p class="subtitle">A coding assistant with a game</p>
+        
+        <div class="options">
+            <a href="/game/index.html" class="card game">
+                <span class="icon">🎮</span>
+                <h2>The Game</h2>
+                <p>Enter the Code Battle arena and test your skills in a fast-paced multiplayer challenge.</p>
+            </a>
+            
+            <a href="/learn/index.html" class="card learn">
+                <span class="icon">🤖</span>
+                <h2>The Assistant</h2>
+                <p>Master C++ with an AI-powered playground that explains and runs your code in real-time.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

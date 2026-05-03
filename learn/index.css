@@ -1,0 +1,111 @@
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0a0f1e;
+  --navy-2:    #0d1428;
+  --navy-3:    #111827;
+  --panel-bg:  rgba(13, 20, 40, 0.82);
+  --border:    rgba(0, 212, 255, 0.18);
+  --cyan:      #00d4ff;
+  --cyan-dim:  rgba(0, 212, 255, 0.15);
+  --cyan-glow: rgba(0, 212, 255, 0.35);
+  --purple:    #7c3aed;
+  --purple-dim:rgba(124, 58, 237, 0.15);
+  --purple-glow:rgba(124, 58, 237, 0.4);
+  --green:     #00ff88;
+  --text:      #e2e8f0;
+  --text-muted:#64748b;
+  --font-ui:   'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan-glow); }
+
+/* ── Orb Animations ───────────────────────────────────────────── */
+@keyframes orb-float-1 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%     { transform: translate(40px, -60px) scale(1.08); }
+  66%     { transform: translate(-30px, 30px) scale(0.94); }
+}
+@keyframes orb-float-2 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  25%     { transform: translate(-50px, 40px) scale(1.1); }
+  75%     { transform: translate(60px, -30px) scale(0.9); }
+}
+@keyframes orb-float-3 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  40%     { transform: translate(30px, 50px) scale(1.05); }
+  80%     { transform: translate(-40px, -20px) scale(0.96); }
+}
+@keyframes orb-float-4 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  50%     { transform: translate(-60px, -40px) scale(1.12); }
+}
+@keyframes orb-float-5 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  30%     { transform: translate(50px, 30px) scale(0.92); }
+  70%     { transform: translate(-20px, -50px) scale(1.06); }
+}
+@keyframes orb-float-6 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  45%     { transform: translate(-35px, 55px) scale(1.08); }
+}
+
+/* ── Title gradient animation ─────────────────────────────────── */
+@keyframes title-gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Pulse glow button ────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px var(--cyan-glow), 0 0 24px var(--cyan-dim); }
+  50%       { box-shadow: 0 0 24px var(--cyan), 0 0 48px var(--cyan-glow), 0 0 64px var(--cyan-dim); }
+}
+
+/* ── Panel slide-in ───────────────────────────────────────────── */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Typing cursor ────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Shimmer loading ──────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚡ Code Battle · JS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+    :root {
+      --c: #00e5ff; --m: #ff1cf7; --g: #00ff9d;
+      --y: #ffd60a; --r: #ff2d55; --js: #f7df1e;
+      --bg: #03030d; --panel: #07071a; --border: #1a1a3e;
+    }
+
+    body {
+      background: var(--bg);
+      color: #c8c8e8;
+      font-family: 'Share Tech Mono', monospace;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 52px 1fr;
+      overflow: hidden;
+      background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(0,229,255,.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(247,223,30,.03) 0%, transparent 50%);
+    }
+
+    header {
+      background: rgba(7,7,26,.96);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 20px; gap: 12px;
+    }
+
+    .brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--c); text-shadow: 0 0 14px var(--c);
+      letter-spacing: 3px;
+    }
+
+    .jsbadge {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      background: var(--js); color: #000;
+      padding: 2px 7px; border-radius: 3px; letter-spacing: 1px;
+    }
+
+    #status { font-size: 12px; color: #888; transition: color .3s; }
+
+    #portalLink {
+      margin-left: auto; font-size: 12px; color: var(--c);
+      text-decoration: none; display: none;
+      padding: 4px 12px; border: 1px solid var(--c); border-radius: 3px;
+      transition: all .15s;
+    }
+    #portalLink:hover { background: var(--c); color: #000; }
+
+    main { display: grid; grid-template-columns: 1fr 310px; overflow: hidden; }
+
+    #preview { width:100%; height:100%; border:none; background:#060614; }
+
+    .side {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    .sec {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .sec h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; color: #3a3a6a;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* Share */
+    #shareRow { display:none; flex-direction:column; gap:8px; }
+
+    #shareUrl {
+      font-size: 10.5px; color: #4af;
+      word-break: break-all;
+      background: #060614; border: 1px solid var(--border);
+      border-radius: 3px; padding: 6px 8px; line-height: 1.5;
+    }
+
+    #copyUrl {
+      display: none;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      padding: 8px 14px; background: transparent;
+      border: 1px solid var(--g); color: var(--g);
+      cursor: pointer; border-radius: 3px; width: 100%;
+      transition: all .15s;
+    }
+    #copyUrl:hover { background: var(--g); color: #000; }
+
+    #bootDots {
+      display: flex; align-items: center; gap: 8px; padding: 6px 0;
+    }
+    .bd {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--c); animation: bd 1.4s ease-in-out infinite;
+    }
+    .bd:nth-child(2) { animation-delay: .2s; }
+    .bd:nth-child(3) { animation-delay: .4s; }
+    @keyframes bd { 0%,80%,100% { opacity:.3; transform:scale(.6); } 40% { opacity:1; transform:scale(1); } }
+    .bd-label { font-size: 11px; color: #3a3a6a; }
+
+    /* How to play */
+    .steps { display:flex; flex-direction:column; gap:10px; }
+    .step  { display:flex; gap:10px; align-items:flex-start; }
+    .sn {
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--c); background: rgba(0,229,255,.1);
+      border: 1px solid rgba(0,229,255,.25); border-radius: 50%;
+      width: 22px; height: 22px; display:flex; align-items:center; justify-content:center;
+      flex-shrink: 0;
+    }
+    .st { font-size: 11px; color: #5a5a8a; line-height: 1.55; }
+    .st b { color: #8888b0; }
+
+    /* Questions */
+    .ql { display:flex; flex-direction:column; gap:8px; }
+    .qi {
+      background: #06060f; border: 1px solid var(--border);
+      border-radius: 4px; padding: 9px 12px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .qi-name { font-size: 11.5px; color: #7070a0; }
+    .qi-d {
+      font-size: 9px; padding: 2px 8px; border-radius: 10px; letter-spacing: 1px;
+    }
+    .qi-d.e { background: rgba(0,255,157,.1);  border: 1px solid var(--g); color: var(--g); }
+    .qi-d.m { background: rgba(255,214,10,.1); border: 1px solid var(--y); color: var(--y); }
+
+    /* Console */
+    #console {
+      flex:1; background:#000; padding:10px;
+      font-size: 10.5px; overflow-y:auto;
+      color: #4a4; line-height: 1.5;
+      scrollbar-width: thin; scrollbar-color: #111 transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">⚡ CODE BATTLE</div>
+    <div class="jsbadge">JS</div>
+    <span id="status" style="margin-left:4px">Booting pod…</span>
+    <a id="portalLink" href="#" target="_blank">Open full screen ↗</a>
+  </header>
+
+  <main>
+    <iframe id="preview"></iframe>
+
+    <div class="side">
+      <!-- Multiplayer / share -->
+      <div class="sec">
+        <h3>Multiplayer</h3>
+        <div id="shareRow">
+          <div id="shareUrl"></div>
+          <button id="copyUrl" onclick="doCopy()">📋 COPY LINK FOR PLAYER 2</button>
+        </div>
+        <div id="bootDots">
+          <div class="bd"></div><div class="bd"></div><div class="bd"></div>
+          <span class="bd-label">Starting up…</span>
+        </div>
+      </div>
+
+      <!-- How to play -->
+      <div class="sec">
+        <h3>How to play</h3>
+        <div class="steps">
+          <div class="step"><div class="sn">1</div><div class="st">Wait for the server to boot, then <b>copy the game link</b> and send it to your opponent.</div></div>
+          <div class="step"><div class="sn">2</div><div class="st">Both players see the <b>same JS challenge</b>. A 3-second countdown starts when both are connected.</div></div>
+          <div class="step"><div class="sn">3</div><div class="st">Write a <b>JavaScript</b> <code>solve()</code> function and hit <b>▶ RUN</b> to test it instantly in the sandbox.</div></div>
+          <div class="step"><div class="sn">4</div><div class="st">First to <b>pass all test cases</b> wins the round. Best of 2 rounds wins the match!</div></div>
+        </div>
+      </div>
+
+      <!-- Questions -->
+      <div class="sec">
+        <h3>Rounds</h3>
+        <div class="ql">
+          <div class="qi">
+            <div class="qi-name">Round 1 · Reverse a String</div>
+            <div class="qi-d e">EASY</div>
+          </div>
+          <div class="qi">
+            <div class="qi-name">Round 2 · FizzBuzz</div>
+            <div class="qi-d e">EASY</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Server console -->
+      <div id="console"></div>
+    </div>
+  </main>
+
+  <script>
+    function doCopy() {
+      const btn = document.getElementById("copyUrl");
+      const url = btn.dataset.url || location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        btn.textContent = "✓ COPIED!";
+        setTimeout(() => (btn.textContent = "📋 COPY LINK FOR PLAYER 2"), 2200);
+      });
+    }
+  </script>
+  <script type="module" src="/game/src/main.js"></script>
+</body>
+</html>
