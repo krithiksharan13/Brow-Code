@@ -10,13 +10,13 @@ Brow-Code? is a unified development environment that merges AI-powered learning 
 
 ## ✨ Features
 
-### 📚 Learn — AI C++ Playground
+### 📚 Learn - AI C++ Playground
 
 An intelligent playground designed for deep learning and rapid prototyping in C++.
 
 | Feature | Description |
 |---|---|
-| **AI Code Generation** | Describe a problem in plain English — Gemini generates the C++ code |
+| **AI Code Generation** | Describe a problem in plain English - Gemini generates the C++ code |
 | **Instant Execution** | Runs C++ directly in your browser via BrowserPod & JSCPP |
 | **Algorithm Visualiser** | Step-by-step breakdown of complex logic into readable states |
 | **AI Debugger** | Identifies the error line, explains the cause, and proposes a fix |
