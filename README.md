@@ -4,7 +4,7 @@
 
 Brow-Code? is a unified development environment that merges AI-powered learning tools with competitive coding challenges. It provides an intelligent C++ playground and a real-time multiplayer JavaScript battle arena, all from a single futuristic hub.
 
-🌐 **Live Demo**: [[brow-code.vercel.app](https://brow-code.vercel.app/)](#) <!-- Replace with your hosted URL -->
+🌐 **Live Demo**: [[**brow-code.vercel.app**](https://brow-code.vercel.app/)] <!-- Replace with your hosted URL -->
 
 ---
 
