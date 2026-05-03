@@ -102,8 +102,7 @@ Built with ⚡ for the University of Leeds.
 
 | Name | Email |
 |---|---|
-**| Krithik Sharan Suresh Alagianayagi | mxnp0398@leeds.ac.uk |
+| Krithik Sharan Suresh Alagianayagi | mxnp0398@leeds.ac.uk |
 | Uday Kiran Reddy Mule | gfqr0053@leeds.ac.uk |
 | Haritej Karimisetti | tctn0725@leeds.ac.uk |
-| Asjad Moiz Khan | gfqs0308@leeds.ac.uk |**
-
+| Asjad Moiz Khan | gfqs0308@leeds.ac.uk |
